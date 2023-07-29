@@ -20,7 +20,6 @@ const LikeButton = ({ songId }: LikeButtonProps) => {
   const { user } = useUser();
 
   const [isLiked, setIsLiked] = useState<boolean>(false);
-  console.log('is present');
   useEffect(() => {
     if (!user?.id) {
       return;
@@ -34,7 +33,6 @@ const LikeButton = ({ songId }: LikeButtonProps) => {
       }
     };
 
-    console.log('passe');
     fetchData();
   }, [songId, supabaseClient, user?.id]);
 
@@ -53,7 +51,7 @@ const LikeButton = ({ songId }: LikeButtonProps) => {
         toast.error(error.message);
         setIsLiked(true);
       } else {
-        toast.success('successfully removed from favorites');
+        toast.success('Removed from favorites');
       }
     } else {
       setIsLiked(true);
@@ -66,7 +64,7 @@ const LikeButton = ({ songId }: LikeButtonProps) => {
         toast.error(error.message);
         setIsLiked(false);
       } else {
-        toast.success('successfully added to favorites');
+        toast.success('Added to favorites');
       }
     }
 
@@ -82,7 +80,7 @@ const LikeButton = ({ songId }: LikeButtonProps) => {
       "
       onClick={handleLike}
     >
-      <Icon color={isLiked ? '#22c55e' : 'white'} size={25} />
+      <Icon color={isLiked ? '#c52222' : 'white'} size={25} />
     </button>
   );
 };
