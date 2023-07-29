@@ -6,8 +6,7 @@ type PlayButtonProps = {};
 function PlayButton({}: PlayButtonProps) {
   return (
     <button
-      className="
-        transition 
+      className=" transition 
         opacity-0 
         rounded-full 
         flex 
