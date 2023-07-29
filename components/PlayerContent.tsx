@@ -31,14 +31,14 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
       return;
     }
 
-    const currentIndex = player.ids.findIndex((id) => id === player.activeId);
+    const currentIndex = player.ids.findIndex((e) => e.id === player.activeId);
     const nextSong = player.ids[currentIndex + 1];
 
     if (!nextSong) {
-      return player.setId(player.ids[0]);
+      return player.setId(player.ids[0].id, player.ids[0].color);
     }
 
-    player.setId(nextSong);
+    player.setId(nextSong.id, nextSong.color);
   };
 
   const onPlayPrevious = () => {
@@ -46,14 +46,14 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
       return;
     }
 
-    const currentIndex = player.ids.findIndex((id) => id === player.activeId);
+    const currentIndex = player.ids.findIndex((e) => e.id === player.activeId);
     const previousSong = player.ids[currentIndex - 1];
 
     if (!previousSong) {
-      return player.setId(player.ids[player.ids.length - 1]);
+      return player.setId(player.ids[player.ids.length - 1].id, player.ids[player.ids.length - 1].color);
     }
 
-    player.setId(previousSong);
+    player.setId(previousSong.id, previousSong.color);
   };
 
   const [play, { pause, sound }] = useSound(songUrl, {

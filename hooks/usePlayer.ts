@@ -1,19 +1,20 @@
 import { create } from 'zustand';
 
 interface PlayerStore {
-  ids: string[];
+  ids: { id: string; color: string }[];
   activeId?: string;
-  setId: (id: string) => void;
-  setIds: (ids: string[]) => void;
+  activeColor?: string;
+  setId: (id: string, color: string) => void;
+  setIds: (ids: { id: string; color: string }[]) => void;
   reset: () => void;
 }
 
 const usePlayer = create<PlayerStore>((set) => ({
   ids: [],
   activeId: undefined,
-  setId: (id: string) => set({ activeId: id }),
-  setIds: (ids: string[]) => set({ ids }),
-  reset: () => set({ ids: [], activeId: undefined }),
+  setId: (id: string, color: string) => set({ activeId: id, activeColor: color }),
+  setIds: (ids: { id: string; color: string }[]) => set({ ids }),
+  reset: () => set({ ids: [], activeId: undefined, activeColor: undefined }),
 }));
 
 export default usePlayer;

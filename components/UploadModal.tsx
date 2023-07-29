@@ -14,6 +14,7 @@ import uniqid from 'uniqid';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
 import LoadingDots from './LoadingDots';
+import { FastAverageColor } from 'fast-average-color';
 
 const UploadModal = () => {
   const router = useRouter();
@@ -74,12 +75,18 @@ const UploadModal = () => {
         return;
       }
 
+      const fac = new FastAverageColor();
+      const average = await fac.getColorAsync(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${imageData.path}`, {
+        algorithm: 'simple',
+      });
+
       const { data: supaData, error: supaError } = await supabaseClient.from('songs').insert({
         user_id: user.id,
         title: values.title,
         author: values.author,
         image_path: imageData.path,
         song_path: songData.path,
+        color: average.rgba,
       });
 
       if (supaError) {

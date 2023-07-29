@@ -6,7 +6,7 @@ type PlayButtonProps = {};
 function PlayButton({}: PlayButtonProps) {
   return (
     <button
-      className=" transition 
+      className="transition 
         opacity-0 
         rounded-full 
         flex 
@@ -18,7 +18,8 @@ function PlayButton({}: PlayButtonProps) {
         translate-y-1/4 
         group-hover:opacity-100 
         group-hover:translate-y-0 
-        hover:scale-110"
+        hover:scale-110
+        active:bg-green-700"
     >
       <FaPlay className="text-black" />
     </button>

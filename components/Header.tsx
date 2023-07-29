@@ -11,6 +11,8 @@ import useAuthModal from '@/hooks/useAuthModal';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useUser } from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
+import usePlayer from '@/hooks/usePlayer';
+import { useMemo } from 'react';
 
 type HeaderProps = {
   children: React.ReactNode;
@@ -22,6 +24,14 @@ function Header({ children, className }: HeaderProps) {
   const authModal = useAuthModal();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
+  const player = usePlayer();
+
+  const linearGradient = useMemo(
+    () => ({
+      background: `linear-gradient(${player.activeColor}, ${player.activeColor?.replaceAll('1)', '0)')})`,
+    }),
+    [player.activeColor]
+  );
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -35,7 +45,7 @@ function Header({ children, className }: HeaderProps) {
   };
 
   return (
-    <div className={twMerge('h-fit bg-gradient-to-b from-emerald-800 p-6', className)}>
+    <div className={twMerge('h-fit bg-gradient-to-b from-emerald-800 p-6', className)} style={player.activeColor ? linearGradient : {}}>
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden md:flex gap-x-2 items-center">
           <button
@@ -58,7 +68,7 @@ function Header({ children, className }: HeaderProps) {
             onClick={() => router.forward()}
             className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
           >
-            <HiHome size={20} className="text-black" />
+            <HiHome size={20} className="text-black" onClick={() => router.push('/')} />
           </button>
         </div>
         <div className="flex justify-between items-center gap-x-4">
