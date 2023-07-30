@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>This project is all about making it easy and fun to share your current favorite tunes with your besties in real-time! 🎶
+<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>This project is all about making it easy and fun to share your current favorite tunes with your besties in real-time!🎶
 </h4>
 
 <p align="center">
@@ -22,13 +22,13 @@
 </p>
 
 <p align="center">
-  <a href="https://airbnb-two-sigma.vercel.app/">
+  <a href="https://tuneify-dcbrian.vercel.app/">
   <img src="/images/tuneify.gif?raw=true"/>
   </a>
 </p>
 
 <p align="center">
-  <a href="https://airbnb-two-sigma.vercel.app/">View Demo</a>
+  <a href="https://tuneify-dcbrian.vercel.app/">View Demo</a>
 </p>
 
 ## Key Features
