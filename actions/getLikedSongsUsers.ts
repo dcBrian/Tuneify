@@ -13,7 +13,6 @@ const getLikedSongsUsers = async (title: string): Promise<UserDetails[]> => {
   if (!title) {
     const { data, error } = await supabase.from('favorite_users').select('users!inner(*)').neq('users.id', sessionData.session?.user.id);
 
-    console.log(data);
     if (error) {
       console.log(error.message);
     }
