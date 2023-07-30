@@ -67,7 +67,7 @@ function Header({ children, className }: HeaderProps) {
           </button>
         </div>
 
-        <div className="flex md:hidden gap-x-3 items-center">
+        <div className="flex md:hidden gap-x-2 items-center">
           <button
             onClick={() => router.push('/')}
             className="
