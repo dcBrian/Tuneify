@@ -13,7 +13,7 @@ import { twMerge } from 'tailwind-merge';
 const font = Figtree({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'albumify',
+  title: 'tuneify',
   description: "Listen to brian's favorite music!",
 };
 
