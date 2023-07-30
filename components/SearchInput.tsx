@@ -29,7 +29,7 @@ const SearchInput = ({ baseUrl, placeholder }: SearchInputProps) => {
     });
 
     router.push(url);
-  }, [debouncedValue, router]);
+  }, [debouncedValue, router, baseUrl]);
 
   return <Input placeholder={placeholder || 'What do you want to listen to?'} value={value} onChange={(e) => setValue(e.target.value)} />;
 };
