@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>This project is all about making it easy and fun to share your current favorite tunes with your besties in real-time!🎶
+<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>It's all about making it easy and fun to share your current favorite tunes with your besties in real-time!🎶
 </h4>
 
 <p align="center">
@@ -16,6 +16,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#responsive-layout">Responsive layout</a> •
   <a href="#credits">Credits</a> •
   <a href="#you-may-also-like">Related</a> •
   <a href="#contact">Contact</a>
@@ -23,7 +24,7 @@
 
 <p align="center">
   <a href="https://tuneify-dcbrian.vercel.app/">
-  <img src="/images/tuneify.gif?raw=true"/>
+  <img src="/images/video.gif?raw=true"/>
   </a>
 </p>
 
@@ -52,9 +53,23 @@ $ cd Tuneify
 # Install dependencies
 $ npm install
 
+# Add your own SUPABASE credentials to .env
+ - NEXT_PUBLIC_SUPABASE_URL
+ - NEXT_PUBLIC_SUPABASE_ANON_KEY
+ - SUPABASE_SERVICE_ROLE_KEY
+
 # Run the app
 $ npm run dev
 ```
+## Responsive layout
+
+Works on mobile, tablet and pc!
+
+<p align="center">
+  <a href="https://tuneify-dcbrian.vercel.app/">
+  <img src="/images/screen.png"/>
+  </a>
+</p>
 
 ## Credits
 
@@ -62,6 +77,7 @@ This software uses the following packages and services:
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Supabase - Open source Firebase alternative](https://supabase.com/)
 - [Vercel](https://vercel.com/)
 
 ## You may also like...
