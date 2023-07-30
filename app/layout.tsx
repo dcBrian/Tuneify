@@ -8,6 +8,7 @@ import { Figtree } from 'next/font/google';
 import ToasterProvider from '@/providers/ToasterProvider';
 import getSongsByUserId from '@/actions/getSongsByUserId';
 import Player from '@/components/Player';
+import { twMerge } from 'tailwind-merge';
 
 const font = Figtree({ subsets: ['latin'] });
 
@@ -20,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const userSongs = await getSongsByUserId();
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={twMerge('select-none', font.className)}>
         <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>

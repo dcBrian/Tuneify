@@ -1,7 +1,7 @@
-import getSongsByTitle from '@/actions/getSongsByTitle';
 import Header from '@/components/Header';
 import SearchInput from '@/components/SearchInput';
 import SearchContent from './components/SearchContent';
+import getLikedSongsUsers from '@/actions/getLikedSongsUsers';
 
 export const revalidate = 0;
 
@@ -10,7 +10,8 @@ interface SearchProps {
 }
 
 const Search = async ({ searchParams }: SearchProps) => {
-  const songs = await getSongsByTitle(searchParams.title);
+  const users = await getLikedSongsUsers(searchParams.title);
+
   return (
     <div
       className="
@@ -24,11 +25,16 @@ const Search = async ({ searchParams }: SearchProps) => {
     >
       <Header className="from-bg-neutral-900">
         <div className="mb-2 flex flex-col gap-y-6">
-          <h1 className="text-white text-3xl font-semibold">Search</h1>
-          <SearchInput baseUrl={'/search'} />
+          <h1 className="text-white text-3xl font-semibold">People's Playlist</h1>
+          <SearchInput baseUrl="/playlist" placeholder="Whose playlist do you want to listen to?" />
         </div>
       </Header>
-      <SearchContent songs={songs} />
+      <div className="mt-2 mb-7 px-6">
+        <div className="flex justify-between items-center">
+          <h1 className="text-white text-2xl font-semibold">All Playlists</h1>
+        </div>
+        <SearchContent users={users} />
+      </div>
     </div>
   );
 };

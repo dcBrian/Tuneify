@@ -1,7 +1,7 @@
 'use client';
 
 import { HiHome } from 'react-icons/hi';
-import { BiSearch } from 'react-icons/bi';
+import { BiSearch, BiUser } from 'react-icons/bi';
 import { twMerge } from 'tailwind-merge';
 import { usePathname } from 'next/navigation';
 
@@ -27,7 +27,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
       {
         icon: HiHome,
         label: 'Home',
-        active: pathname !== '/search',
+        active: pathname !== '/search' && pathname !== '/playlist',
         href: '/',
       },
       {
@@ -36,20 +36,18 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
         href: '/search',
         active: pathname === '/search',
       },
+      {
+        icon: BiUser,
+        label: "People's Playlist",
+        href: '/playlist',
+        active: pathname === '/playlist',
+      },
     ],
     [pathname]
   );
 
   return (
-    <div
-      className={twMerge(
-        `
-        flex 
-        h-full
-        `,
-        player.activeId && 'h-[calc(100%-80px)]'
-      )}
-    >
+    <div className={twMerge(`flex  h-full`, player.activeId && 'h-[calc(100%-80px)]')}>
       <div
         className="
           hidden 

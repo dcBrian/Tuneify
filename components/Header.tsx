@@ -13,6 +13,7 @@ import { useUser } from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
 import usePlayer from '@/hooks/usePlayer';
 import { useMemo } from 'react';
+import { BiSearch, BiUser } from 'react-icons/bi';
 
 type HeaderProps = {
   children: React.ReactNode;
@@ -45,7 +46,10 @@ function Header({ children, className }: HeaderProps) {
   };
 
   return (
-    <div className={twMerge('h-fit bg-gradient-to-b from-emerald-800 p-6', className)} style={player.activeColor ? linearGradient : {}}>
+    <div
+      className={twMerge('h-fit bg-gradient-to-b from-emerald-800 p-6 min-h-[228px]', className)}
+      style={player.activeColor ? linearGradient : {}}
+    >
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden md:flex gap-x-2 items-center">
           <button
@@ -63,12 +67,54 @@ function Header({ children, className }: HeaderProps) {
           </button>
         </div>
 
-        <div className="flex md:hidden gap-x-2 items-center">
+        <div className="flex md:hidden gap-x-3 items-center">
           <button
-            onClick={() => router.forward()}
-            className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
+            onClick={() => router.push('/')}
+            className="
+              rounded-full 
+              p-2 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              hover:opacity-75 
+              transition
+            "
           >
-            <HiHome size={20} className="text-black" onClick={() => router.push('/')} />
+            <HiHome className="text-black" size={20} />
+          </button>
+          <button
+            onClick={() => router.push('/search')}
+            className="
+              rounded-full 
+              p-2 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              hover:opacity-75 
+              transition
+            "
+          >
+            <BiSearch className="text-black" size={20} />
+          </button>
+          <button
+            onClick={() => router.push('/playlist')}
+            className="
+              rounded-full 
+              p-2 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              hover:opacity-75 
+              transition
+            "
+          >
+            <BiUser className="text-black" size={20} />
           </button>
         </div>
         <div className="flex justify-between items-center gap-x-4">

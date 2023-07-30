@@ -8,7 +8,12 @@ import useDebounce from '@/hooks/useDebounce';
 
 import Input from './Input';
 
-const SearchInput = () => {
+interface SearchInputProps {
+  baseUrl: string;
+  placeholder?: string;
+}
+
+const SearchInput = ({ baseUrl, placeholder }: SearchInputProps) => {
   const router = useRouter();
   const [value, setValue] = useState<string>('');
   const debouncedValue = useDebounce<string>(value, 500);
@@ -19,14 +24,14 @@ const SearchInput = () => {
     };
 
     const url = qs.stringifyUrl({
-      url: '/search',
+      url: baseUrl || '/',
       query,
     });
 
     router.push(url);
   }, [debouncedValue, router]);
 
-  return <Input placeholder="What do you want to listen to?" value={value} onChange={(e) => setValue(e.target.value)} />;
+  return <Input placeholder={placeholder || 'What do you want to listen to?'} value={value} onChange={(e) => setValue(e.target.value)} />;
 };
 
 export default SearchInput;

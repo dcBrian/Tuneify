@@ -1,16 +1,16 @@
-import getSongsByTitle from '@/actions/getSongsByTitle';
+import getUserLikedSongs from '@/actions/getUserLikedSongs';
 import Header from '@/components/Header';
-import SearchInput from '@/components/SearchInput';
 import SearchContent from './components/SearchContent';
 
 export const revalidate = 0;
 
-interface SearchProps {
-  searchParams: { title: string };
+interface ListProps {
+  searchParams: { user: string };
 }
 
-const Search = async ({ searchParams }: SearchProps) => {
-  const songs = await getSongsByTitle(searchParams.title);
+const List = async ({ searchParams }: ListProps) => {
+  const songs = await getUserLikedSongs(searchParams?.user);
+
   return (
     <div
       className="
@@ -24,8 +24,7 @@ const Search = async ({ searchParams }: SearchProps) => {
     >
       <Header className="from-bg-neutral-900">
         <div className="mb-2 flex flex-col gap-y-6">
-          <h1 className="text-white text-3xl font-semibold">Search</h1>
-          <SearchInput baseUrl={'/search'} />
+          <h1 className="text-white text-3xl font-semibold">{searchParams?.user + "'s PlayList"}</h1>
         </div>
       </Header>
       <SearchContent songs={songs} />
@@ -33,4 +32,4 @@ const Search = async ({ searchParams }: SearchProps) => {
   );
 };
 
-export default Search;
+export default List;
