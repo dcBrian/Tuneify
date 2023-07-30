@@ -1,5 +1,7 @@
 'use client';
 
+import useAuthModal from '@/hooks/useAuthModal';
+import { useUser } from '@/hooks/useUser';
 import { UserDetails } from '@/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -12,6 +14,9 @@ type PlaylistItemProps = {
 
 export default function PlaylistItem({ data }: PlaylistItemProps) {
   const router = useRouter();
+  const { user } = useUser();
+  const authModal = useAuthModal();
+
   const imagePath = data?.avatar_url || '/images/avatar.png';
 
   const url = useMemo(() => {
@@ -26,9 +31,16 @@ export default function PlaylistItem({ data }: PlaylistItemProps) {
     return url;
   }, [data]);
 
+  const handleClick = () => {
+    if (!user) {
+      return authModal.onOpen();
+    }
+    router.push(url);
+  };
+
   return (
     <div
-      onClick={() => router.push(url)}
+      onClick={handleClick}
       className="relative group flex flex-col items-center justify-center rounded-md overflow-hidden gap-x-4 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 active:bg-neutral-400/20 transition p-3"
     >
       <div className="relative aspect-square w-full h-full rounded-md overflow-hidden">

@@ -11,7 +11,13 @@ const getLikedSongsUsers = async (title: string): Promise<UserDetails[]> => {
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
 
   if (!title) {
-    const { data, error } = await supabase.from('favorite_users').select('users!inner(*)').neq('users.id', sessionData.session?.user.id);
+    let query = supabase.from('favorite_users').select('users!inner(*)');
+
+    if (sessionData?.session) {
+      query = query.neq('users.id', sessionData?.session?.user?.id);
+    }
+
+    const { data, error } = await query;
 
     if (error) {
       console.log(error.message);
@@ -20,11 +26,13 @@ const getLikedSongsUsers = async (title: string): Promise<UserDetails[]> => {
     return data?.map((e) => e.users as any) || [];
   }
 
-  const { data, error } = await supabase
-    .from('favorite_users')
-    .select(' users(*)')
-    .ilike('full_name', `%${title}%`)
-    .order('created_at', { ascending: false });
+  let query = supabase.from('favorite_users').select('users!inner(*)').ilike('users.pseudo', `%${title}%`);
+
+  if (sessionData?.session) {
+    query = query.neq('users.id', sessionData?.session?.user?.id);
+  }
+
+  const { data, error } = await query;
 
   if (error) {
     console.log(error.message);
