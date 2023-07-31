@@ -23,13 +23,13 @@
 </p>
 
 <p align="center">
-  <a href="tuneify-eight.vercel.app">
+  <a href="https://tuneify-eight.vercel.app">
   <img src="/images/video.gif?raw=true"/>
   </a>
 </p>
 
 <p align="center">
-  <a href="tuneify-eight.vercel.app">View Demo</a>
+  <a href="https://tuneify-eight.vercel.app">View Demo</a>
 </p>
 
 ## Key Features
