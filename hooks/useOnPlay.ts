@@ -10,9 +10,10 @@ const useOnPlay = (songs: Song[]) => {
   const { user } = useUser();
 
   const onPlay = (id: string) => {
-    if (!user) {
-      return authModal.onOpen();
-    }
+    // Allow everyone to play music without being connected
+    // if (!user) {
+    //   return authModal.onOpen();
+    // }
 
     player.setId(id, songs.find((e) => e.id === id)?.color || '');
     player.setIds(songs.map((song) => ({ id: song.id, color: song.color })));

@@ -14,7 +14,6 @@ type PlaylistItemProps = {
 
 export default function PlaylistItem({ data }: PlaylistItemProps) {
   const router = useRouter();
-  const { user } = useUser();
   const authModal = useAuthModal();
 
   const imagePath = data?.avatar_url || '/images/avatar.png';
@@ -32,9 +31,6 @@ export default function PlaylistItem({ data }: PlaylistItemProps) {
   }, [data]);
 
   const handleClick = () => {
-    if (!user) {
-      return authModal.onOpen();
-    }
     router.push(url);
   };
 
