@@ -34,10 +34,10 @@
 
 ## Key Features
 
-* Expand the Database: Add your very own songs and share them with everyone. Spread the musical joy and let your unique taste shine!
-* Discover Melodic Treasures: Search through a diverse range of tracks to find your perfect jam.
-* Craft Your Ultimate Playlist: Create and curate your favorite playlist with just a few clicks. Mix and match songs to build a musical masterpiece that suits your mood.
-* Peek into Others' Musical World: Explore and appreciate other people's playlists. See what they've crafted and get inspired by their musical journeys.
+* Expand the Database: Add your very own songs and share them with everyone.
+* Discover Treasures: Search through a diverse range of tracks to find your perfect jam.
+* Craft Your Ultimate Playlist: Create and curate your favorite playlist with just a few clicks.
+* Peek into Others' Musical World: See what they've crafted and get inspired by their musical journeys.
 
 ## How To Use
 
