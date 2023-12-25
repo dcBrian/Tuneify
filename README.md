@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>It's all about making it easy and fun to share your current favorite tunes with your besties in real-time!🎶
+<h4 align="center">This project was made with <a href="https://nextjs.org/" target="_blank">Next.js</a>.<br>
 </h4>
 
 <p align="center">
@@ -34,10 +34,10 @@
 
 ## Key Features
 
-* Expand the Database: Add your very own songs and share them with everyone.
-* Discover Treasures: Search through a diverse range of tracks to find your perfect jam.
-* Craft Your Ultimate Playlist: Create and curate your favorite playlist with just a few clicks.
-* Peek into Others' Musical World: See what they've crafted and get inspired by their musical journeys.
+* Add your very own songs.
+* Search through a diverse range of tracks.
+* Create and curate your favorite playlist.
+* See other people's playlist and get inspired.
 
 ## How To Use
 
