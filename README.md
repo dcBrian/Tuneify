@@ -82,4 +82,3 @@ This software uses the following packages and services:
 ## You may also like...
 
 - [A Wordle clone](https://github.com/dcBrian/wordle)
-- [A Reddit clone](https://github.com/dcBrian/Reddit)
