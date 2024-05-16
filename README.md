@@ -18,8 +18,7 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#responsive-layout">Responsive layout</a> •
   <a href="#credits">Credits</a> •
-  <a href="#you-may-also-like">Related</a> •
-  <a href="#contact">Contact</a>
+  <a href="#you-may-also-like">Related</a>
 </p>
 
 <p align="center">
@@ -36,8 +35,8 @@
 
 * Add your very own songs.
 * Search through a diverse range of tracks.
-* Create and curate your favorite playlist.
-* See other people's playlist and get inspired.
+* Create your favorite playlist.
+* See other people's playlist.
 
 ## How To Use
 
@@ -84,7 +83,3 @@ This software uses the following packages and services:
 
 - [A Wordle clone](https://github.com/dcBrian/wordle)
 - [A Reddit clone](https://github.com/dcBrian/Reddit)
-
-## Contact
-
-dacruzbrian1@gmail.com
